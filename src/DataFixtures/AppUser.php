@@ -17,7 +17,7 @@ class AppUser extends Fixture
         $user->setEmail("jeremie.grunnagel3@etu.univ-lorraine.fr")
             ->setFirstname("Jeremie")
             ->setLastname("Grunnagel")
-            ->setRoles(True)
+            ->setRoles(["ADMIN"])
             ->setPassword("password_test")
             ->setAddress($address);
         $manager->persist($user);

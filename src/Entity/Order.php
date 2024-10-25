@@ -36,6 +36,9 @@ class Order
     #[ORM\OneToMany(targetEntity: OrderItem::class, mappedBy: 'Orders')]
     private Collection $OrderItem;
 
+    #[ORM\ManyToOne(inversedBy: 'orders')]
+    private ?User $orders = null;
+
     public function __construct()
     {
         $this->OrderItem = new ArrayCollection();
@@ -120,6 +123,18 @@ class Order
                 $orderItem->setOrders(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getOrders(): ?User
+    {
+        return $this->orders;
+    }
+
+    public function setOrders(?User $orders): static
+    {
+        $this->orders = $orders;
 
         return $this;
     }
