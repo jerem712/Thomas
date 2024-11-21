@@ -1,2 +1,7 @@
 Accueil:
   test: ce message est en français
+
+Login:
+  message: Connexion
+  email: Mail
+  password: Mot de passe

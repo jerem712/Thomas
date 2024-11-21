@@ -25,6 +25,7 @@ Now with special - FICSIT Foundation only - Grip Wheels, for an even smoother an
             ->setCategory($category)
             ->setImage($image);
         $manager->persist($product);
+        $this->addReference(self::PRODUCT_REFERENCE . "_0", $product);
 
         $manager->flush();
     }
