@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+</nav>
+{% for p in products %}
+<div class="col-3">
+    <p>{{p.name}}</p><br>
+    <img src="{{ asset('images/' ~ p.image.url )}}"></a>
+</div>
+{% endfor %}
+{% endblock %}
