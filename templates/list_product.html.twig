@@ -1,1 +1,43 @@
 {% extends 'base.html.twig' %}
+
+{% block content %}
+<div class="selection_tab">
+    <a href="{{ path('list_product', {categ: 0}) }}" class="btn btn-secondary orane">{{ ("Liste.all" ) | trans }}</a>
+    {% for i in 1..nb_categ %}
+        <a href="{{ path('list_product', {categ: i}) }}" class="btn btn-secondary orane">{{ ("Accueil.categ_" ~ i) | trans }}</a>
+    {% endfor %}
+</div>
+<table>
+{% if categ_name == 0 %}
+  <caption>
+    {{ "Liste.titre" | trans }}
+  </caption>
+{% endif %}
+  <thead>
+    <tr>
+      <th scope="col">{{ "Liste.nom" | trans }}</th>
+      <th scope="col">{{ "Liste.prix" | trans }}</th>
+      <th scope="col">{{ "Liste.stock" | trans }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in products %}
+    <tr>
+      <th scope="row">{{ p.name }}</th>
+      <td>{{ p.price }}</td>
+      {% if p.stock == 1 %}
+        <td>{{ "Liste.dispo" | trans }}</td>
+      {% else %}
+        <td>{{ "Liste.pas_dispo" | trans }}</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </tbody>
+  <tfoot>
+    <tr>
+      <th scope="row" colspan="2">{{ "Liste.total" | trans }}</th>
+      <td>{{ nb_products }}</td>
+    </tr>
+  </tfoot>
+</table>
+{% endblock %}

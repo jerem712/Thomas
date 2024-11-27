@@ -24,3 +24,13 @@ Login:
 
 New_product:
   title: Add product
+
+Liste:
+  titre: List of all the products
+  nom: Name
+  prix: Price
+  stock: Stock
+  dispo: Available
+  pas_dispo: Not Available
+  total: Total
+  all: All

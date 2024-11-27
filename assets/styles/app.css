@@ -105,6 +105,63 @@ body {
     font-size: 25px;
 }
 
+.selection_tab {
+    margin-top: 20px;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.selection_tab a {
+    display: inline-block;
+    text-align: center;
+    width: 9%;
+    overflow: hidden;
+}
+
+.orane {
+    background-color: #d99853;
+}
+
+.orane:hover {
+    background-color: #d37c1f;
+}
+
+table {
+    border: 2px solid gray;
+    width: 80%;
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 50px;
+    table-layout: fixed;
+}
+
+th, td {
+    border: 1px solid gray;
+    padding: 8px 10px;
+}
+
+td:nth-child(2) {
+    text-align: center;
+}
+
+td:nth-child(3) {
+    text-align: center;
+}
+
+caption {
+    text-align: center;
+}
+
+thead, tfoot {
+    background-color: #cecece;
+    text-align: center;
+}
+
+tfoot td {
+    font-weight: bold;
+}
+
 .navbar-custom {
     background-color: #3f3f3f;
     width: 100%;

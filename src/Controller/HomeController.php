@@ -52,13 +52,25 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/list_product', name: 'list_product')]
-    public function list(CategoryRepository $repo): Response
+    #[Route('/list_product_{categ}', name: 'list_product')]
+    public function list(?string $categ = null, ProductRepository $prepo, CategoryRepository $repo): Response
     {
+        if($categ == 0) {
+            $products = $prepo->findAll();
+            $nb_products = count($products);
+        } else {
+            $categ_Id = $repo->findAllId();
+            $id_2 = $categ_Id[$categ - 1];
+            $products = $prepo->findByCategory($id_2);
+            $nb_products = count($products);
+        }
         $nb_categ = count($repo->findAll());
 
         return $this->render('list_product.html.twig', [
             'nb_categ' => $nb_categ,
+            'products' => $products,
+            'nb_products' => $nb_products,
+            'categ_name' => $categ,
         ]);
     }
 
@@ -69,31 +81,9 @@ class HomeController extends AbstractController
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $imageFile = $form->get('Image')->getData();
-            echo $imageFile;
-
-            // this condition is needed because the 'image' field is not required
-            // so the PDF file must be processed only when a file is uploaded
-            if ($imageFile) {
-                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
-                // this is needed to safely include the file name as part of the URL
-                $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
-
-                // Move the file to the directory where images are stored
-                try {
-                    $imageFile->move("var\www\symfony\assets\images", $newFilename);
-                } catch (FileException $e) {
-                    echo "test";
-                }
-
-                // updates the 'imageFilename' property to store the PDF file name
-                // instead of its contents
-                $product->setImage($newFilename);
                 $em->persist($product);
                 $em->flush();
                 return $this->redirectToRoute('home');
-            }
         }
 
         return $this->render('ajout_product.html.twig', [
