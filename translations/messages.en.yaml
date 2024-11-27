@@ -1,2 +1,25 @@
 Accueil:
-  test: this message is in English
+  name: Welcome
+  connexion: Login
+  deconnexion: Logout
+  new_product: Add product
+  admin: Administrator
+  categ_1: FICSIT Special
+  categ_2: Management
+  categ_3: Organization
+  categ_4: Customizer
+  categ_5: Foundations
+  categ_6: Walls
+  categ_7: Architecture
+  categ_8: Equipment
+  categ_9: Parts
+  test: this message is in english
+  not_connected: You are not connected
+
+Login:
+  message: Login
+  email: Email
+  password: Password
+
+New_product:
+  title: Add product

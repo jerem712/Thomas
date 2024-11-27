@@ -32,6 +32,18 @@ class AppUser extends Fixture
         $manager->persist($user);
         $this->addReference(self::USER_REFERENCE . "_0", $user);
 
+        $user = new User();
+        $user->setEmail("user@gmail.com")
+            ->setFirstName("Pedro")
+            ->setLastName("Pascal")
+            ->setRoles(["ROLE_USER"])
+            ->setPassword($this->userPasswordHasherInterface->hashPassword(
+                $user, "motdepasse"))
+            ->setVerified(True)
+            ->setAdress($address);
+        $manager->persist($user);
+        $this->addReference(self::USER_REFERENCE . "_1", $user);
+
         $manager->flush();
     }
 }

@@ -1,12 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-</nav>
-{% for p in products %}
-<div class="col-3">
-    <p>{{p.name}}</p><br>
-    <img src="{{ asset('images/' ~ p.image.url )}}"></a>
+{% block content %}
+<img src="{{ asset('images/categories/Categ_' ~ id ~ '.png' ) }}" class="image_categ"/>
+<div class="wrapper">
+    {% for p in products %}
+    <div class="product">
+        <div class="full_product">
+            <div class="selected">
+            <img src="{{ asset('images/items/categ_1/' ~ p.Image ) }}" class="product_image"></a>
+            <p class="product_name">{{p.name}}</p><br>
+            <div class="line"></div>
+            <div class="prix">
+                <img src="{{ asset('images/coupon.png') }}" class="coupon"/>
+                <p class="price">x{{ p.price }}</p>
+            </div>
+            </div>
+            <div class="product_buttons">
+                <button type="button"><img src="{{ asset('images/Shopping_cart_black.png') }}"/></button>
+                <button type="button"><img src="{{ asset('images/Favorite.png') }}"/></button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
 {% endblock %}

@@ -1,7 +1,25 @@
 Accueil:
+  name: Bonjour
+  connexion: Connexion
+  deconnexion: Deconnexion
+  new_product: Ajouter produit
+  admin: Administrateur
+  categ_1: FICSIT Special
+  categ_2: Management
+  categ_3: Organisation
+  categ_4: Customisation
+  categ_5: Fondations
+  categ_6: Murs
+  categ_7: Architecture
+  categ_8: Equipement
+  categ_9: Parties
   test: ce message est en français
+  not_connected: Vous n'êtes pas connecté
 
 Login:
   message: Connexion
   email: Mail
   password: Mot de passe
+
+New_product:
+  title: Ajouter produit

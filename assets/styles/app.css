@@ -1,0 +1,188 @@
+body {
+    background-color: #e8e8e8;
+}
+
+.wrapper {
+    margin-left: 200px;
+    margin-right: 200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.product_name {
+    font-size: 40px;
+}
+
+.prix {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.coupon {
+    width: 90px;
+    height: auto;
+}
+
+.price {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.product {
+    text-align: center;
+    background-color: white;
+    outline: 1px solid #adadad;
+    position: relative;
+    height: 400px;
+    margin: 40px;
+    margin-bottom: 100px;
+}
+
+.full_product {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    
+}
+
+.product_image {
+    height: 250px;
+    width: 250px;
+}
+
+.product_buttons {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.product_buttons button {
+    width: 100%;
+    height: 60px;
+    background-color: #bbbbbb;
+    border: none;
+}
+
+.product_buttons button img{
+    width: 45px;
+    height: 45px;
+}
+
+.product_buttons button:hover {
+    background-color: #d99853;
+}
+
+.selected:hover {
+    color: #d99853;
+}
+
+.line {
+    height: 2px;
+    background: #adadad;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.image_categ {
+    display: block;
+    margin: auto;
+    padding-bottom: 100px;
+}
+
+.message_principal {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.message_principal_2 {
+    text-align: center;
+    font-size: 25px;
+}
+
+.navbar-custom {
+    background-color: #3f3f3f;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 1%;
+}
+
+.navbar-custom a {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    width: 10%;
+    text-align: center;
+    font-size: 1.2vw;
+}
+
+.active {
+    border-bottom: solid #d99853;
+}
+
+.navbar-custom a:hover {
+    color: #d99853;
+}
+
+.Compte {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.total {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.header-custom {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: white;
+}
+
+.header-custom input[type=text] {
+    float: right;
+    border: none;
+    padding-right: 1%;
+    background-color: #666666;
+    font-size: 1vw;
+    margin-top: 18px;
+    margin-right: 20%;
+    color: white;
+}
+
+.header-custom input[type=text]::placeholder {
+    color: white;
+}
+
+.header-custom button {
+    float: right;
+    border: none;
+    background: none;
+}
+
+.header-custom button img{
+    height: 50px;
+    width: 50px;
+}
+
+@media screen and (max-width: 800px) {
+    .header-custom input[type=text] {
+      visibility: hidden;
+    }
+}
+
+@media screen and (max-width: 1500px) {
+    .wrapper {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

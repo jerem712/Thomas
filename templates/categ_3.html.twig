@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<img src="{{ asset('images/categories/Categ_' ~ id ~ '.png' ) }}" class="image_categ"/>
+<div class="row">
+    {% for p in products %}
+    <div class="col-3 product">
+        <img src="{{ asset('images/' ~ p.Image ) }}" class="product_image"></a>
+        <p class="product_name">{{p.name}}</p><br>
+        <div class="line"></div>
+        <div class="prix">
+            <img src="{{ asset('images/coupon.png') }}" class="coupon"/>
+            <p class="price">x{{ p.price }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

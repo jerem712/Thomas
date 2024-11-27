@@ -29,8 +29,10 @@ class Product
     #[ORM\Column(enumType: ProductStatus::class)]
     private ?ProductStatus $status = null;
 
-    #[ORM\OneToOne(mappedBy: 'Product', cascade: ['persist', 'remove'])]
-    private ?Image $Image = null;
+    #[ORM\Column(length: 500)]
+    private ?string $Image = null;
+    //#[ORM\OneToOne(mappedBy: 'Product', cascade: ['persist', 'remove'])]
+    //private ?Image $Image = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     #[ORM\JoinColumn(nullable: false)]
@@ -101,13 +103,18 @@ class Product
         return $this;
     }
 
-    public function getImage(): ?Image
+    public function getImage(): ?string
     {
         return $this->Image;
     }
 
-    public function setImage(?Image $Image): static
+    public function setImage(?string $Image): static
     {
+        $this->Image = $Image;
+
+        return $this;
+    }
+    /*{
         // unset the owning side of the relation if necessary
         if ($Image === null && $this->Image !== null) {
             $this->Image->setProduct(null);
@@ -121,7 +128,7 @@ class Product
         $this->Image = $Image;
 
         return $this;
-    }
+    }*/
 
     public function getCategory(): ?Category
     {
