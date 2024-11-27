@@ -11,7 +11,6 @@ use App\Repository\ProductRepository;
 use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\CategoryRepository;
-use App\Repository\UserRepository;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
@@ -50,6 +49,16 @@ class HomeController extends AbstractController
             'products' => $products,
             'nb_categ' => $nb_categ,
             'id' => $id,
+        ]);
+    }
+
+    #[Route('/list_product', name: 'list_product')]
+    public function list(CategoryRepository $repo): Response
+    {
+        $nb_categ = count($repo->findAll());
+
+        return $this->render('list_product.html.twig', [
+            'nb_categ' => $nb_categ,
         ]);
     }
 

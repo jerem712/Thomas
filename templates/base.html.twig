@@ -15,6 +15,7 @@
     <body>
         {% block header %}
         <header class="header-custom">
+        <div class="gauche">
             <a href="{{ path('home') }}"><img class="logo" src="{{ asset('images/Awesome_shop_logo.png') }}"/></a>
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                 <a href="{{ path('app_logout') }}" class="btn btn-secondary">{{ "Accueil.deconnexion" | trans }}</a>
@@ -22,15 +23,22 @@
                 <a href="{{ path('app_login') }}" class="btn btn-secondary">{{ "Accueil.connexion" | trans }}</a>
             {% endif %}
             {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('list_product') }}" class="btn btn-secondary">{{ "Accueil.list_product" | trans }}</a>
                 <a href="{{ path('new_product') }}" class="btn btn-secondary">{{ "Accueil.new_product" | trans }}</a>
             {% endif %}
+        </div>
+        <div class="droite">
+        <div class="search">
             <input type="text" placeholder="Search..">
+            <button type="button" id="search_button"><img src="{{ asset('images/loupe.png') }}" style="height: 22px;width: 22px"/></button>
+        </div>
             <div class="Compte">
                 <img src="{{ asset('images/coupon.png') }}" class="coupon"/>
                 <p class="total">x0</p>
             </div>
             <button type="button" class="favorite"><img src="{{ asset('images/Favorite_white.png') }}"/></button>
             <button type="button" class="basket"><img src="{{ asset('images/Shopping_cart_white.png') }}"/></button>
+        </div>
         </header>
         {% endblock %}
         {% block navbar %}

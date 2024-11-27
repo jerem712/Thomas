@@ -3,6 +3,7 @@ Accueil:
   connexion: Login
   deconnexion: Logout
   new_product: Add product
+  list_product: List Products
   admin: Administrator
   categ_1: FICSIT Special
   categ_2: Management
