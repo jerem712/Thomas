@@ -40,12 +40,12 @@ class HomeController extends AbstractController
 
     public function category(int $id, ProductRepository $prepo, CategoryRepository $repo): Response
     {
-        $twig = 'categ_' . strval($id) . '.html.twig';
+        //$twig = 'categ_' . strval($id) . '.html.twig';
         $categ = $repo->findAllId();
         $nb_categ = count($repo->findAll());
         $id_2 = $categ[$id - 1];
         $products = $prepo->findByCategory($id_2);
-        return $this->render($twig, [
+        return $this->render('categ.html.twig', [
             'products' => $products,
             'nb_categ' => $nb_categ,
             'id' => $id,
