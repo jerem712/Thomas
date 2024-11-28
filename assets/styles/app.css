@@ -228,6 +228,8 @@ tfoot td {
 .header-custom {
     padding-top: 2%;
     padding-bottom: 1%;
+    padding-left: 10px;
+    padding-right: 10px;
     background-color: white;
     display: flex;
     justify-content: space-between;
