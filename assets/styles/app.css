@@ -2,6 +2,24 @@ body {
     background-color: #e8e8e8;
 }
 
+.form {
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.submit {
+    margin-top: 20px;
+}
+
+.form_row {
+    width: 100%;
+}
+
+.widget {
+    width: 100px;
+}
+
 .wrapper {
     margin-left: 200px;
     margin-right: 200px;
@@ -9,6 +27,11 @@ body {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 10px;
     grid-auto-rows: minmax(100px, auto);
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
 }
 
 .product_name {
@@ -28,7 +51,7 @@ body {
     height: auto;
 }
 
-.price {
+.price_1 {
     font-size: 40px;
     font-weight: bold;
 }

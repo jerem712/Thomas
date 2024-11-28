@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\DBAL\Query;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -24,6 +25,16 @@ class ProductRepository extends ServiceEntityRepository
             ->orderBy('p.id', 'ASC')
             ->getQuery()
             ->getResult()
+        ;
+    }
+
+    public function findByCategoryQuery($value)
+    {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.category = :val')
+            ->setParameter('val', $value)
+            ->orderBy('p.id', 'ASC')
+            ->getQuery()
         ;
     }
 

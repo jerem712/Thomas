@@ -11,6 +11,7 @@ use App\Repository\ProductRepository;
 use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\CategoryRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
@@ -38,17 +39,24 @@ class HomeController extends AbstractController
 
     #[Route('/categ_{id}', name: 'categ')]
 
-    public function category(int $id, ProductRepository $prepo, CategoryRepository $repo): Response
+    public function category(int $id, PaginatorInterface $paginator, Request $request, ProductRepository $prepo, CategoryRepository $repo): Response
     {
         //$twig = 'categ_' . strval($id) . '.html.twig';
         $categ = $repo->findAllId();
         $nb_categ = count($repo->findAll());
         $id_2 = $categ[$id - 1];
         $products = $prepo->findByCategory($id_2);
+        $query = $prepo->findByCategoryQuery($id_2);
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), /* page number */
+            3 /* limit per page */
+        );
         return $this->render('categ.html.twig', [
             'products' => $products,
             'nb_categ' => $nb_categ,
             'id' => $id,
+            'pagination' => $pagination
         ]);
     }
 
@@ -75,8 +83,9 @@ class HomeController extends AbstractController
     }
 
     #[Route('/new_product', name: 'new_product')]
-    public function creation(Request $request, EntityManagerInterface $em, SluggerInterface $slugger): Response
+    public function creation(Request $request, EntityManagerInterface $em, CategoryRepository $repo): Response
     {
+        $nb_categ = count($repo->findAll());
         $product = new Product();
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
@@ -89,6 +98,7 @@ class HomeController extends AbstractController
         return $this->render('ajout_product.html.twig', [
             'product' => $product,
             'form' => $form,
+            'nb_categ' => $nb_categ,
         ]);
     }
 }

@@ -1,9 +1,37 @@
 {% extends 'base.html.twig' %}
-{% block navbar %}{% endblock %}
 {% block content %}
-{{ form_start(form) }} <!--symfony form twig-->
-    {{ form_row(form.name) }}
-    <button type="submit">Ajouter</button>
+<div class="form">
+{{ form_start(form) }}
+    <div class="form_row">
+        <div class="name_label">{{ form_label(form.name) }}</div>
+        <div class="widget">{{ form_widget(form.name) }}</div>
+    </div>
+    <div class="form_row">
+        <div class="price_label">{{ form_label(form.price) }}</div>
+        <div class="form_row">{{ form_widget(form.price) }}</div>
+    </div>
+    <div class="form_row">
+        <div class="Image_label">{{ form_label(form.Image) }}</div>
+        <div class="form_row">{{ form_widget(form.Image) }}</div>
+    </div>
+    <div class="form_row">
+        <div class="description_label">{{ form_label(form.description) }}</div>
+        <div class="form_row">{{ form_widget(form.description) }}</div>
+    </div>
+    <div class="form_row">
+        <div class="stock_label">{{ form_label(form.stock) }}</div>
+        <div class="stock_widget">{{ form_widget(form.stock) }}</div>
+    </div>
+    <div class="form_row">
+        <div class="status_label">{{ form_label(form.status) }}</div>
+        <div class="status_widget">{{ form_widget(form.status) }}</div>
+    </div>
+    <div class="form_row">
+        <div class="category_label">{{ form_label(form.category) }}</div>
+        <div class="category_widget">{{ form_widget(form.category) }}</div>
+    </div>
+    <button type="submit" class="submit">Ajouter</button>
 {{ form_end(form) }}
+</div>
     
 {% endblock %}

@@ -3,7 +3,7 @@
 {% block content %}
 <img src="{{ asset('images/categories/Categ_' ~ id ~ '.png' ) }}" class="image_categ"/>
 <div class="wrapper">
-    {% for p in products %}
+    {% for p in pagination %}
     <div class="product">
         <div class="full_product">
             <div class="selected">
@@ -12,7 +12,7 @@
             <div class="line"></div>
             <div class="prix">
                 <img src="{{ asset('images/coupon.png') }}" class="coupon"/>
-                <p class="price">x{{ p.price }}</p>
+                <p class="price_1">x{{ p.price }}</p>
             </div>
             </div>
             <div class="product_buttons">
@@ -22,5 +22,8 @@
         </div>
     </div>
     {% endfor %}
+</div>
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
 </div>
 {% endblock %}
