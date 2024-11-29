@@ -16,6 +16,8 @@ Accueil:
   categ_9: Parties
   test: ce message est en français
   not_connected: Vous n'êtes pas connecté
+  delete: Suppr
+  confirm: Êtes-vous sûr de vouloir supprimer cet item ?
 
 Login:
   message: Connexion
@@ -34,3 +36,8 @@ Liste:
   pas_dispo: Pas Disponible
   total: Total
   all: Tout
+
+Error:
+  title: Noob
+  speech: La page recherchée n'existe pas. Skill issue. 
+  home: gwapa

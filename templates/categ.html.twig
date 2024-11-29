@@ -18,6 +18,13 @@
             <div class="product_buttons">
                 <button type="button"><img src="{{ asset('images/Shopping_cart_black.png') }}"/></button>
                 <button type="button"><img src="{{ asset('images/Favorite.png') }}"/></button>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <form action="{{ path('delete', {id: p.id}) }}" method="post" onsubmit="return confirm('{{ "Accueil.confirm" | trans }}');" class="delete_form">
+                        <input type="hidden" name="_method" value="POST">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ p.id) }}">
+                        <button type="submit" id="delete">{{"Accueil.delete" | trans}}</button>
+                    </form>
+                {% endif %}
             </div>
         </div>
     </div>

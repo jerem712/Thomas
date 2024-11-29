@@ -2,6 +2,15 @@ body {
     background-color: #e8e8e8;
 }
 
+.post {
+    margin: 20px;
+    margin-right: 80%;
+}
+
+.submit {
+    margin-top: 20px;
+}
+
 .form {
     padding-top: 20px;
     padding-left: 50px;
@@ -90,6 +99,18 @@ body {
     height: 60px;
     background-color: #bbbbbb;
     border: none;
+}
+
+#delete {
+    width: 80px;
+    padding: 18px;
+    background-color: rgb(252, 69, 69);
+    color: black;
+    text-decoration: none;
+}
+
+#delete:hover {
+    background-color: rgb(185, 0, 0);
 }
 
 .product_buttons button img{
@@ -286,6 +307,11 @@ tfoot td {
 .header-custom button img{
     height: 50px;
     width: 50px;
+}
+
+.error {
+    text-align: center;
+    margin: 100px;
 }
 
 @media screen and (max-width: 800px) {

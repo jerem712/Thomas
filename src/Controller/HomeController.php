@@ -12,8 +12,6 @@ use App\Entity\Product;
 use App\Form\ProductType;
 use App\Repository\CategoryRepository;
 use Knp\Component\Pager\PaginatorInterface;
-use Symfony\Component\String\Slugger\SluggerInterface;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class HomeController extends AbstractController
 {
@@ -100,5 +98,41 @@ class HomeController extends AbstractController
             'form' => $form,
             'nb_categ' => $nb_categ,
         ]);
+    }
+
+    #[Route('/delete_{id}', name: 'delete')]
+    public function delete(int $id, Request $request, EntityManagerInterface $em): Response
+    {
+        $product = $em->getRepository(Product::class)->find($id);
+
+        if(!$product)
+        {
+            throw $this->createNotFoundException('The product does not exist');
+        }
+
+        $em->remove($product);
+        $em->flush();
+
+        $route = $request->headers->get('referer');
+
+        return $this->redirect($route);
+    }
+
+    #[Route('/add_basket_{id}', name: 'delete')]
+    public function add(int $id, Request $request, EntityManagerInterface $em): Response
+    {
+        $product = $em->getRepository(Product::class)->find($id);
+
+        if(!$product)
+        {
+            throw $this->createNotFoundException('The product does not exist');
+        }
+
+        $em->remove($product);
+        $em->flush();
+
+        $route = $request->headers->get('referer');
+
+        return $this->redirect($route);
     }
 }

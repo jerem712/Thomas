@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% block header %}{% endblock %}
+{% block navbar %}{% endblock %}
+
+{% block content %}
+<div class="error">
+    <h1>{{ "Error.title" | trans }}</h1>
+
+    <p>
+        {{ "Error.speech" | trans }} <a href="{{ path('home') }}">{{ "Error.home" | trans }}</a>
+    </p>
+</div>
+{% endblock %}

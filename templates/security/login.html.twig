@@ -4,7 +4,7 @@
 {% block navbar %}
 {% endblock %}
 {% block content %}
-    <form method="post">
+    <form method="post" class="post">
         {% if error %}
             <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
@@ -29,8 +29,8 @@
             <label for="_remember_me">Remember me</label>
         </div>
         -->
-
-        <button class="btn btn-lg btn-primary" type="submit">
+        <input type="hidden" name="_target_path" value="{{ back_to_your_page }}"/>
+        <button class="btn btn-lg btn-primary submit" type="submit">
             Sign in
         </button>
     </form>
