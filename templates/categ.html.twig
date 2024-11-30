@@ -6,7 +6,7 @@
     {% for p in pagination %}
     <div class="product">
         <div class="full_product">
-            <div class="selected">
+            <div class="selected" onclick="location.href='{{path('detail', {id: p.id})}}'">
             <img src="{{ p.Image }}" class="product_image"></a>
             <p class="product_name">{{p.name}}</p><br>
             <div class="line"></div>
@@ -16,7 +16,7 @@
             </div>
             </div>
             <div class="product_buttons">
-                <button type="button"><img src="{{ asset('images/Shopping_cart_black.png') }}"/></button>
+                <a type="button" href="{{ path('addCart', {id: p.id}) }}"><img src="{{ asset('images/Shopping_cart_black.png') }}"/></a>
                 <button type="button"><img src="{{ asset('images/Favorite.png') }}"/></button>
                 {% if is_granted('ROLE_ADMIN') %}
                     <form action="{{ path('delete', {id: p.id}) }}" method="post" onsubmit="return confirm('{{ "Accueil.confirm" | trans }}');" class="delete_form">

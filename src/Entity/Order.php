@@ -17,14 +17,14 @@ class Order
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $reference = null;
+    //#[ORM\Column(length: 255)]
+    //private ?string $reference = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
+    //#[ORM\Column]
+    //private ?\DateTimeImmutable $createdAt = null;
 
-    #[ORM\Column(enumType: OrderStatus::class)]
-    private ?OrderStatus $status = null;
+    //#[ORM\Column(enumType: OrderStatus::class)]
+    //private ?OrderStatus $status = null;
 
     #[ORM\ManyToOne(inversedBy: 'Orders')]
     #[ORM\JoinColumn(nullable: false)]
@@ -49,7 +49,7 @@ class Order
         return $this->id;
     }
 
-    public function getReference(): ?string
+    /*public function getReference(): ?string
     {
         return $this->reference;
     }
@@ -83,7 +83,7 @@ class Order
         $this->status = $status;
 
         return $this;
-    }
+    }*/
 
     public function getUser(): ?User
     {

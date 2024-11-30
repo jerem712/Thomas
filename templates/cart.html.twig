@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    {% for i in items.OrderItem %}
+        <p>{{ i.Product.name }}</p>
+    {% endfor %}
+{% endblock %}

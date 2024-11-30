@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+<div class="detail_all">
+    <div class="detail_product">
+        <p class="detail_name">{{ product.name }}</p><br>
+        <img src="{{ product.Image }}"></a><br>
+        <p class="detail_description">{{ product.description }}</p>
+    </div>
+    <div class="detail_panier">
+        <p class="detail_price">Price : {{ product.price }}</p>
+        <a href="{{ path('addCart', {id: product.id}) }}" class="detail_cart_button"><img src="{{ asset('images/Shopping_cart_black.png') }}"/></a>
+    </div>
+</div>
+{% endblock %}

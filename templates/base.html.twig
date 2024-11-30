@@ -36,8 +36,8 @@
                 <img src="{{ asset('images/coupon.png') }}" class="coupon"/>
                 <p class="total">x0</p>
             </div>
-            <button type="button" class="favorite"><img src="{{ asset('images/Favorite_white.png') }}"/></button>
-            <button type="button" class="basket"><img src="{{ asset('images/Shopping_cart_white.png') }}"/></button>
+            <a type="button" class="favorite"><img src="{{ asset('images/Favorite_white.png') }}"/></a>
+            <a type="button" class="basket" href="{{ path('seeCart') }}"><img src="{{ asset('images/Shopping_cart_white.png') }}"/></a>
         </div>
         </header>
         {% endblock %}
