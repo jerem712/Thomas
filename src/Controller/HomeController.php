@@ -70,7 +70,6 @@ class HomeController extends AbstractController
             3 /* limit per page */
         );
         
-        dump($pagination);
         return $this->render('categ.html.twig', [
             'products' => $products,
             'nb_categ' => $nb_categ,
